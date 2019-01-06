@@ -17,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <!--
         ************************************************************************
         Activity to launch welcome screen if no existing user or not logged in.
@@ -24,8 +25,8 @@
         ************************************************************************
         -->
         <activity
-            android:name="welcome_screen"
-            android:label="title_activity_welcome_screen"
+            android:name=".welcome_screen"
+            android:label="welcome_screen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +40,7 @@
         ************************************************************************
         -->
         <activity
-            android:name="PortalsHome"
+            android:name=".PortalsHome"
             android:label="PortalsHome"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -47,7 +48,6 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
         <!--
         *************************************************
@@ -56,7 +56,7 @@
         *************************************************
         -->
         <activity
-            android:name="LoginActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -70,11 +70,10 @@
         *************************************************
         -->
         <activity
-            android:name="AccountSetup"
+            android:name=".AccountSetup"
             android:label="AccountSetup"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -84,14 +83,23 @@
 *       ************************************************
         -->
         <activity
-            android:name="CreatePortal"
+            android:name=".CreatePortal"
             android:label="@string/CreatePortal"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Dummy"
+            android:label="@string/title_activity_dummy"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
