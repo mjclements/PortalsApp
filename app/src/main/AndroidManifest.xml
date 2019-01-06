@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mjclements.myapplication">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--
+        ************************************************************************
+        Activity to launch welcome screen if no existing user or not logged in.
+        Uses welcome_screen.java and activity_welcome_screen.xml
+        ************************************************************************
+        -->
+        <activity
+            android:name="welcome_screen"
+            android:label="title_activity_welcome_screen"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+        ************************************************************************
+        Activity to launch a user's homepage once authenticated.
+        ************************************************************************
+        -->
+        <activity
+            android:name="PortalsHome"
+            android:label="PortalsHome"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name=".PortalsHome" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <!--
+        *************************************************
+            Activity to log in an existing User.
+            uses log_in_screen.xml and log_in.java
+        *************************************************
+        -->
+        <activity
+            android:name="LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+        *************************************************
+            Activity to set up an account for a new user.
+            uses activity_account_setup.xml and AccountSetup.java
+        *************************************************
+        -->
+        <activity
+            android:name="AccountSetup"
+            android:label="AccountSetup"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+        *************************************************
+        Activity to create a new portal and add to that users list of profiles.
+*       ************************************************
+        -->
+        <activity
+            android:name="CreatePortal"
+            android:label="@string/CreatePortal"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="welcome_screen">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_welcome_screen" />
+
+
+
+    <!--<Button-->
+        <!--android:id="@+id/logIn"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="#123"-->
+        <!--android:text="Log In" />-->
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0fc"
+
+            android:text="PORTALS"
+            android:layout_weight=".02"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="48sp" />
+        <Button
+            android:id="@+id/LogIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:layout_weight=".1"
+            android:background="#ff3399"
+            android:textColor="#fff"
+            android:textSize="15pt"/>
+    <Button
+        android:id="@+id/CreateAcct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        android:background="#0099ff"
+        android:text="Create Account"
+        android:textColor="#fff"
+        android:textSize="15pt" />
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
