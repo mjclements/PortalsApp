@@ -69,7 +69,7 @@ public class DatabaseWrapperTest {
         DataStorageWrapper db = new DataStorageWrapper(InstrumentationRegistry.getTargetContext());
         db.dump_database();
         db.initiate();
-        User guy = new User("String");
+        User guy = new User("String", "email@email.com");
         Profile prof1 = new Profile("Profile_One", true, false, false, false, false, true);
         guy.add_Profile(prof1);
         db.insert_User(guy, "Password123");

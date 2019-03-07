@@ -18,6 +18,16 @@ public class Profile {
     public boolean Spotfy;
     public boolean Youtube;
 
+    /**
+     *  Most explicit possible portal constructor.
+     * @param name
+     * @param show_splash
+     * @param learn
+     * @param tell
+     * @param Netflix
+     * @param Spotify
+     * @param Youtube
+     */
     public Profile(String name, boolean show_splash, boolean learn, boolean tell, boolean Netflix, boolean Spotify, boolean Youtube){
         this.name = name;
         this.show_splash = show_splash;
@@ -26,6 +36,10 @@ public class Profile {
         this.Netflix = Netflix;
         this.Spotfy = Spotify;
         this.Youtube = Youtube;
+        this.ID = UUID.randomUUID();
+        this.Liked = new List_of_Scene();
+        this.Seen = new List_of_Scene();
+        this.tags = new ArrayList<String>();
     }
 
     public Profile(String name){

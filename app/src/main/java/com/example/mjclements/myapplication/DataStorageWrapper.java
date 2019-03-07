@@ -23,12 +23,21 @@ import java.util.UUID;
 import static java.security.AccessController.getContext;
 
 public class DataStorageWrapper {
+
+    private static DataStorageWrapper instance = null;
+
     public SQLiteDatabase db;
+
+
     public DataStorageWrapper(Context context){
-        File file = new File("portalz.db");
-        String path = context.getApplicationContext().getFilesDir().getAbsolutePath().concat("/portals.db");
-        Log.d("CUCK ME ", path);
-        this.db = SQLiteDatabase.openOrCreateDatabase(path, null, null);
+        if (instance == null) {
+            File file = new File("portalz.db");
+            String path = context.getApplicationContext().getFilesDir().getAbsolutePath().concat("/portals.db");
+            Log.d("CUCK ME ", path);
+            this.db = SQLiteDatabase.openOrCreateDatabase(path, null, null);
+        } else {
+
+        }
     }
     /**
      * Checks if the database exists
@@ -97,7 +106,6 @@ public class DataStorageWrapper {
      */
     public void insert_User(User to_add, String Pass){
         ContentValues Content = new ContentValues();
-        Log.d("FUCK:", to_add.ID.toString());
         Content.put("ID",  to_add.ID.toString());
         Content.put("'Name'", to_add.name);
         Content.put("'Pass'", Pass);
@@ -183,8 +191,6 @@ public class DataStorageWrapper {
         String selection = "ID='".concat(ID.toString()) + "'";
         Cursor result = this.db.query(table, columns, selection, null, null, null, null, null);
         result.moveToFirst();
-        Log.d("FUCK:", String.valueOf(result.getCount()));
-        Log.d("FUCK:", result.getString(0));
         User accessed = new User(result.getString(result.getColumnIndex("Name")));
         accessed.ID = UUID.fromString(result.getString(0));
         accessed.list_of_profiles = this.get_Profiles(accessed);
@@ -211,7 +217,7 @@ public class DataStorageWrapper {
         Cursor result = this.db.query(table, columns, selection, null, null, null, null, null);
         result.moveToFirst();
         while(!result.isAfterLast()){
-            Scene s = new Scene(result.getInt(1), ("true" == result.getString(3)) );
+            Scene s = new Scene(result.getInt(1), (result.getInt(3) > 0) );
             s.ID.fromString(result.getString(0));
             s.timestamp = Timestamp.valueOf(result.getString(2));
             los.add(s);
@@ -241,12 +247,13 @@ public class DataStorageWrapper {
             p.Liked = new List_of_Scene();
             p.Liked.list_of_seen.addAll(this.get_Scenes(p));
             p.ID.fromString(result.getString(0));
-            p.show_splash = (result.getString(1) == "true");
-            p.learn = (result.getString(2) == "true");
-            p.tell = (result.getString(3) == "true");
-            p.Netflix = (result.getString(6) == "true");
-            p.Spotfy = (result.getString(7) == "true");
-            p.Youtube = (result.getString(8) == "true");
+            p.show_splash = result.getInt(1) > 0;
+            Log.d("FUCK", result.getString(1));
+            p.learn = result.getInt(2) > 0;
+            p.tell = result.getInt(3) > 0;
+            p.Netflix = result.getInt(6) > 0;
+            p.Spotfy = result.getInt(7) > 0;
+            p.Youtube = result.getInt(8) > 0;
             lop.add(p);
             result.move(1);
         }
